@@ -8,6 +8,9 @@
 #
 
 library(shiny)
+library(caret)
+library(Metrics)
+library(ggplot2)
 
 # Define server logic required to apply linear regression model based on input
 # number of top predictors
@@ -48,10 +51,6 @@ shinyServer(function(input, output, session) {
                
                 isolate({ 
                         nbrPredictors <- as.integer(input$nbrPredictors)
-                        
-                        library(caret)
-                        library(Metrics)
-                        library(ggplot2)
                         
                         inTrain <- inTrain()
                         trainSet <- mtcars[inTrain, ]
